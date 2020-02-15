@@ -1,0 +1,142 @@
+What is Node.js?:
+	Node.js is a runtime built on Chrome's V8 engine.
+
+	Allows you to run javascript on a computer / server.
+
+	Can communicate with a database.
+
+	It is very fast because it uses non-blocking code.
+
+	Huge ecosystem of open-source packages through npm.
+
+	Great for real-time services. (ex. chats)
+
+	We can run our apps from the command line with the command "node <filename>"
+
+	
+V8 Engine:
+	Computers don't understand javascript.
+
+	A javascript engine takes javascript and converts it into machine code so it can be run. (Similar to a compiler or interpreter)
+
+	Node.js is written in C++ because it uses the V8 engine which is also written in C++
+	
+	V8 is the js engine used in google chrome.
+
+	V8 can stand alone or be embedded into othewr c++ applications.
+
+	Node.js is a C++ program with the V8 engine embedded into it that allows us to extend the features of javascript.
+
+NPM:
+	NPM stands for Node Package Manager and it is the package manager used by Node.js (NuGet is the package manager used in c#)
+	
+	NPM is a huge ecosystem of node.js packages.
+
+	A Node.js package is basically a bunch of code that has been written by someone else
+
+	Each package offers a specific functionality.
+
+	With NPM we can install other node packages and create packages for other people to use.
+
+	You can browse NPM packages at npmjs.com
+
+	To install a package we use the console command "npm install <package name>" in the project directory.
+
+Package.json:
+	The package.json keeps track of our node packages.
+
+	We can either create one ourself or have npm create one for us using the command "npm init".
+
+	The package.json can keep track of our projects dependencies. (Packages that our project needs to run)
+
+	However, the npm packages you install will not be added to the package.json by default.
+
+	In order to tell npm that a package we are installing is a dependency we must pass the -save flag when we install it. "npm install <package name> -save"
+
+	When we use the -save flag the package will be added to our dependencies in our package.json
+
+	Once the dependencies are listed in the package.json we can simply use the command "npm install" to install them
+
+The Global Object:
+	When writing js in a browser the window object is the global object.
+
+	The Global object in Node.js is called Global.
+
+	This object contains methods that we can use in Node.js
+
+	The global object contains methods such as console.log() that are normally on the window object.
+
+	In Node.js console.log() logs mesages to the terminal rather than the debug console in the browser developer tools because Node.js runs on the computer not in a browser.
+
+	Contains __dirname and __filename variables that contain an absolute path of the current directory and the name of the current file respectively. 
+
+Modules and Require:
+	Modules allow us to break up our code into different logical parts. 
+
+	We can import our modules into different files. (Similar to using in C# or imports in Java)
+
+	A module is just a regular .js file.
+
+`	We import a module with the require() function which accepts a file path as a parameter.
+
+	In order to make values in a module available to files that import it, we need to specifically export the things we want to be made available.
+
+	We do this using the module.exports object. We can set the object to be whatever we want, it could be a number, function, an object, etc.
+
+	When we require a module we need to store whatever is being exported in a variable in order to be able to use it.
+	
+
+The Node Event Emitter:
+	Node.js comes with some modules built-in, these are called core modules.
+
+	To require a core module you just require the name of the module (no path required)
+
+	Node contains a core module called events.
+
+	We can create custom events using the events module.
+
+	The events module exports the event-emmiter.
+	
+	We must call the constructor of the EventEmmitter from the events module. (var emitter = new events.EventEmmiter();)
+
+	We use the emitter to create events using the on() method. The on() method accepts the event name as a string nand a callback to be executed when the event is emitted.
+
+	We use the emit() method to fire an event. The function accepts one to many parameters depending on the callback defined in the on() method.
+	The first parameter is the name of the event to be emitted and the other parameters are the parrameters accepted by your callback function if any are defined.
+
+Util Module:
+	The util module allows us to use inheritance in our applications.
+
+	To do this we use the util.inherits() method which accepts two parameters the class we want to inherit something and the class we want it to inherit.
+
+Express:
+	Express is one of the most popular packages available for Node.js
+
+	Express is a Node Package that helps us with routing and templating.
+
+	We can install express through npm using the command "npm install express"
+
+	To use express in our app we must require it. "const express = require('express')"
+
+	We must then make a variable (traditionally called "app") and set it to an instance of express. "const app = express()"
+
+	In order to create routes in express we call functions off the "app" variable that corespond to the http methods. (GET, POST, PUT, DELETE)
+
+	So to create a route for a get request we would use the get() method which accepts the route path and a callback function as parameters.
+	The callback has two parameters passed to it, our request and response objects. "app.get('/', (request, response) => {});"
+
+	The response object contains methods that allow us to send data back to the user who created the request.
+
+	Route Parameters:
+		A route parameter is a variable that is passed through our route. (/Posts/Edit/1)
+
+		To create a route parameter in express we add a colon and our variable identifier right in our path string.
+		Example: app.get('posts/:id', (request, response) => {})
+
+		We can then access the value of our route parameter from our request object. 
+
+		The request object contains a property called params this property contains an object with the route parameters you have defined as properties.
+		Example: request.params.id
+	
+	
+	

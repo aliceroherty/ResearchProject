@@ -1,0 +1,7 @@
+CRUD Web App:
+	- Make an N-Tier Back-End With the Tiers seperated into Node Modules. (ex. DAL Module, Models Module, Repository Module) With requires instead of references.
+	- Make Data Access helper modules and use mvc architecture. 
+	- Use view model classes for passing data to ejs views 
+
+Chat app with socket.io:
+	
