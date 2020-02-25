@@ -42,6 +42,8 @@ NPM:
 
 	To install a package we use the console command "npm install <package name>" in the project directory.
 
+	Installed packages will be stored in the node_modules directory.
+
 Package.json:
 	The package.json keeps track of our node packages.
 
@@ -125,7 +127,66 @@ Express:
 	So to create a route for a get request we would use the get() method which accepts the route path and a callback function as parameters.
 	The callback has two parameters passed to it, our request and response objects. "app.get('/', (request, response) => {});"
 
-	The response object contains methods that allow us to send data back to the user who created the request.
+	Request and Response: 
+		The request object contains information about the request that was sent to use from the user.
+
+		The response object contains methods that allow us to send data back to the user who created the request.
+
+	Templating:
+		Templating Engines:
+			Templating Engines allow us to dynamically inject data into our HTML Files.
+
+			There are many templating engines that are compatible with express.
+
+			We will be using a templating engine called EJS.
+
+		Setting Up EJS:
+			We need to install EJS to use it in our application.
+
+			We can install EJS using NPM. "npm install ejs"
+
+			We then need to change our apps view engine setting to ejs.
+
+			We assign values to our settings using the app.set(key, value) method.
+
+			app.set("view engine", "ejs");
+
+		Rendering Views:	
+			When we request a view express will automatically look in the "views" folder for the view. So we should always create a folder called "views" for storing our views.
+
+			Our views will have a file extension of .ejs
+
+			To render a view we use the response.render(viewName) method.
+
+			response.render("index"); 
+
+		Passing Data to Views:	
+			The response.render() method accepts a maximum of three parameters, the view name, an optional data object that will be passed to the view, and an optional callback.
+
+			In order to pass data to the view we must include the optional data object when rendering our view.
+
+			Once the data has been passed to the view we can interact with it using EJS.
+
+			response.render("index", {message: "Hello World"});
+
+		Working With EJS:
+			In EJS we have a variety of different tags we can use.
+
+			EJS tags are syntactically very similar to JSP tags.
+			
+			To output a value we use the <%= value %> tag. (This tag HTML escapes the value before outputting it.)
+
+			To output a raw / unescaped value use the <%- value %> tag.
+
+			EJS also includes a scriplet tag <% %> this is only for control-flow and will not output any value.
+			
+			To create comments we use the <%# %> tag.
+
+			<h1><%= message %></h1>	
+
+		Partial Views:
+			
+				
 
 	Route Parameters:
 		A route parameter is a variable that is passed through our route. (/Posts/Edit/1)
@@ -137,6 +198,12 @@ Express:
 
 		The request object contains a property called params this property contains an object with the route parameters you have defined as properties.
 		Example: request.params.id
+
+	Static Files:
+
+	Handling Post Requests:
+
+	
 	
 	
 	
