@@ -185,7 +185,17 @@ Express:
 			<h1><%= message %></h1>	
 
 		Partial Views:
-			
+			Partial views allow us to eliminate redundancy in our layouts.
+
+			We should use partial views for anything that will be used in multiple views. (Navbar, Header, Footer, etc.)
+
+			In EJS we have an include(viewName, [data]) function that allows us to include a partial view in our view.
+
+			The path to the view is still relative to the "views" folder when including it.
+
+			When including a partial view we should use the raw output tag (<%- %>) to avoid double-escaping our HTML Output.
+
+			For Example: If we have a view called "views/partials/nav.ejs" we would say <%- include("partials/nav") %>
 				
 
 	Route Parameters:
@@ -200,8 +210,10 @@ Express:
 		Example: request.params.id
 
 	Static Files:
+		
 
 	Handling Post Requests:
+		
 
 	
 	
