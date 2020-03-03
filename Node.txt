@@ -132,6 +132,59 @@ Express:
 
 		The response object contains methods that allow us to send data back to the user who created the request.
 
+	Route Parameters:
+		A route parameter is a variable that is passed through our route. (/Posts/Edit/1)
+
+		To create a route parameter in express we add a colon and our variable identifier right in our path string.
+		Example: app.get('posts/:id', (request, response) => {})
+
+		We can then access the value of our route parameter from our request object. 
+
+		The request object contains a property called params this property contains an object with the route parameters you have defined as properties.
+		Example: request.params.id
+
+	Serving Static Files:
+		Static files are any files that do not require any sort of processing before being sent to the user.
+
+		Images and Stylesheets are examples of static files.
+
+		When serving static files in Express we don't want to write out a route for every stylesheet as that would be time consuming.
+
+		Instead we can select a folder and make all of its contents publicly accessable at once.
+
+		We do this using express.static() method which accepts our desired folder as a parameter.
+		
+		We pass the desired route to map the folder to and express.static() as arguments to the app.use() method.
+
+	Handling Post Requests:
+		To create a route for a post request we use the app.post() method which accepts the route path and any number of callbacks as parameters.
+
+		When we send data through a post request the data is stored in the body of the request.
+
+		The request object in Express does not handle parsing of post requests for us.
+
+		In order to parse the body of our post requests we need to use a node module called body-parser.
+
+		npm install body-parser
+
+		To use body-parser in our application we must begin by requiring it.
+
+		const bodyParser = require("body-parser");
+
+		For the average post request from an HTML form we will need to use the url encoded parser available from this module.
+
+		var urlEncodedParser = bodyParser.urlencoded({ extended: false });
+
+		The URL Encoded Parser takes the form of a function that we will pass in to our post routes as a callback before passing in our usual callback with our request and response objects.
+
+		app.post("/", urlEncodedParser, (request, response) => {});
+
+		Once we have our post route setup with the parser we can access our posted data through the request objects body property.
+
+		request.body
+
+		The request.body property will contain an object with properties coresponding to the name attributes set on the form's inputs.
+
 	Templating:
 		Templating Engines:
 			Templating Engines allow us to dynamically inject data into our HTML Files.
@@ -198,23 +251,8 @@ Express:
 			For Example: If we have a view called "views/partials/nav.ejs" we would say <%- include("partials/nav") %>
 				
 
-	Route Parameters:
-		A route parameter is a variable that is passed through our route. (/Posts/Edit/1)
-
-		To create a route parameter in express we add a colon and our variable identifier right in our path string.
-		Example: app.get('posts/:id', (request, response) => {})
-
-		We can then access the value of our route parameter from our request object. 
-
-		The request object contains a property called params this property contains an object with the route parameters you have defined as properties.
-		Example: request.params.id
-
-	Static Files:
+	
 		
-
-	Handling Post Requests:
-		
-
 	
 	
 	
