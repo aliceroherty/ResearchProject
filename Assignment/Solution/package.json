@@ -1,0 +1,16 @@
+{
+  "name": "research-project-demo-solution",
+  "version": "1.0.0",
+  "description": "The solution for the demo created for my research project.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alice Roherty-Carrier",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1"
+  }
+}

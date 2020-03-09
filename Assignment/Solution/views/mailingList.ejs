@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mailing List</title>
+    <%- include("partials/bootstrap") %>
+</head>
+<body class="text-center">
+    <%- include("partials/nav") %>
+    <h1>Mailing List</h1>
+    <form method="post">
+        <input type="text" name="name" id="name" placeholder="Name" class="text-center">
+        <input type="text" name="address" id="address" placeholder="Address" class="text-center">
+        <input type="text" name="email" id="email" placeholder="Email" class="text-center">
+        <button type="submit">Sign Up</button>
+    </form>
+</body>
+</html>

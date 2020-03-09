@@ -1,3 +1,4 @@
+const settings = require("./modules/settings");
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -18,7 +19,7 @@ app.get("/", (request, response) => {
 });
 
 app.get("/users/:id", (request, response) => {
-    response.send(request.params.id);
+    response.send("You requested a user with the ID: " + request.params.id);
 });
 
 app.get("/form", (request, response) => {
@@ -31,6 +32,6 @@ app.post("/form", urlEncodedParser, (request, response) => {
     console.log(request.body.lastName);
 });
 
-app.listen(80, () => {
-    console.log("The server is listening on port 80...");
+app.listen(settings.port, () => {
+    console.log(`The server is listening on port ${settings.port}...`);
 });
